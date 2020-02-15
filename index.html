@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Login Form</title>
+<!-- Include CSS File Here -->
+<link rel="stylesheet" href="css/login.css"/>
+<!-- Include JS File Here -->
+</head>
+<script type="text/javascript">
+		var attempt = 3; // Variable to count number of attempts.
+		// Below function Executes on click of login button.
+		function validate(){
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("password").value;
+		if ( username == "kavya" && password == "kavya123"){
+		// alert ("Login successfully");
+		window.location = "home.html"; // Redirecting to other page.
+		return false;
+		}
+		else{
+		attempt --;// Decrementing by one.
+		// alert("You have left "+attempt+" attempt;");
+		// Disabling fields after 3 attempts.
+		if( attempt == 0){
+		document.getElementById("username").disabled = true;
+		document.getElementById("password").disabled = true;
+		document.getElementById("submit").disabled = true;
+		return false;
+		}
+		}
+		}
+</script>
+<body>
+<div class="container center_div">
+	   <div class="container">
+			<div class="main">
+			        <h2>Login Form</h2>
+					<form id="form_id" method="post" name="myform">
+					<label>User Name :</label>
+					<input type="text" name="username" id="username"/>
+					<label>Password :</label>
+					<input type="password" name="password" id="password"/>
+					<input type="button" value="Login" id="submit" onclick="validate()"/>
+					</form>
+				</div>
+		</div>
+</div>
+</body>
+</html>
